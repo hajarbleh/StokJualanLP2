@@ -16,9 +16,10 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'barang','as' => 'barang.'], function() {
-Route::get('show', ['as' => 'showAll', 'uses' => 'BarangController@show']);
-Route::get('add', ['as' => 'showAdd', 'uses' => 'BarangController@add']);
-Route::post('add', ['as' => 'add', 'uses' => 'BarangController@add']);
-Route::get('edit/{id}', ['as' => 'showEdit', 'uses' => 'BarangController@edit']);
-Route::post('edit/{id}', ['as' => 'edit', 'uses' => 'BarangController@edit']);
+	Route::get('show', ['as' => 'showAll', 'uses' => 'BarangController@show']);
+	Route::get('add', ['as' => 'showAdd', 'uses' => 'BarangController@add']);
+	Route::post('add', ['as' => 'add', 'uses' => 'BarangController@add']);
+	Route::get('edit/{id}', ['as' => 'showEdit', 'uses' => 'BarangController@edit']);
+	Route::post('edit/{id}', ['as' => 'edit', 'uses' => 'BarangController@edit']);
+	Route::get('delete/{id}', ['as' => 'delete', 'uses' => 'BarangController@delete']);
 });

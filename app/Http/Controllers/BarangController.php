@@ -50,4 +50,13 @@ class BarangController extends Controller
 			return redirect(route('barang.showAll'));
 		}
     }
+
+	public function delete($id) {
+		$JenisBarang = JenisBarang::find($id);
+		if(!$JenisBarang) {
+			return redirect(route('barang.showAll'));
+		}
+		$JenisBarang->delete();
+		return redirect(route('barang.showAll'));
+	}
 }
