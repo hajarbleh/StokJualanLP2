@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('barang/show', ['as' => 'showBarang', 'uses' => 'BarangController@show']);
+Route::get('barang/add', ['as' => 'showAddBarang', 'uses' => 'BarangController@add']);
+Route::post('barang/add', ['as' => 'addBarang', 'uses' => 'BarangController@add']);
+
