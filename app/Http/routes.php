@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('barang/show', ['as' => 'showBarang', 'uses' => 'BarangController@show']);
-Route::get('barang/add', ['as' => 'showAddBarang', 'uses' => 'BarangController@add']);
-Route::post('barang/add', ['as' => 'addBarang', 'uses' => 'BarangController@add']);
-
+Route::group(['prefix' => 'barang','as' => 'barang.'], function() {
+Route::get('show', ['as' => 'showAll', 'uses' => 'BarangController@show']);
+Route::get('add', ['as' => 'showAdd', 'uses' => 'BarangController@add']);
+Route::post('add', ['as' => 'add', 'uses' => 'BarangController@add']);
+Route::get('edit/{id}', ['as' => 'showEdit', 'uses' => 'BarangController@edit']);
+Route::post('edit/{id}', ['as' => 'edit', 'uses' => 'BarangController@edit']);
+});

@@ -7,6 +7,7 @@
   	<th>Nama barang</th>
   	<th>Harga jual</th>
   	<th>Isi per dus</th>
+	<th>Aksi</th>
   </tr>
   <?php
   	$counter = 1;
@@ -28,7 +29,9 @@
   		<td>
   			{{$Barang->isi_per_dus}}
   		</td>
-  		
+		<td>
+			<a href="edit/{{$Barang->id}}">Ubah</a>|<a href="delete/{{$Barang->id}}">Hapus</a>
+		</td>
   	</tr>
   @endforeach
 </table>
