@@ -10,7 +10,7 @@ use Carbon\Carbon;
 use App\JenisBarang;
 use App\DetailLogStok;
 use App\LogStok;
-
+use Auth;
 use Illuminate\Support\Facades\Input;
 use Validator;
 
@@ -34,7 +34,7 @@ class StokController extends Controller
 			$LogStok = new LogStok;
 			//date_default_timezone_set('Asia/Jakarta');
 			$LogStok->tanggal = Carbon::now();
-			$LogStok->signature = "John";
+			$LogStok->signature = Auth::user()->name;
 			$LogStok->tag = "Restock";
 			$LogStok->save();
 			foreach ($JenisBarang as $Barang) {
@@ -117,7 +117,7 @@ class StokController extends Controller
 			$JenisBarang = JenisBarang::get();
 			$LogStok = new LogStok;
 			$LogStok->tanggal = Carbon::now();
-			$LogStok->signature = "John";
+			$LogStok->signature = Auth::user()->name;
 			$LogStok->tag = "Hitung";
 			$LogStok->save();
 			foreach ($JenisBarang as $Barang) {
