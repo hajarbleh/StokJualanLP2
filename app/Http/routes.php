@@ -23,3 +23,11 @@ Route::group(['prefix' => 'barang','as' => 'barang.'], function() {
 	Route::post('edit/{id}', ['as' => 'edit', 'uses' => 'BarangController@edit']);
 	Route::get('delete/{id}', ['as' => 'delete', 'uses' => 'BarangController@delete']);
 });
+
+Route::group(['prefix' => 'stok', 'as' => 'stok.'], function() {
+	Route::get('add', ['as' => 'showAdd', 'uses' => 'StokController@add']);
+	Route::post('add', ['as' => 'Add', 'uses' => 'StokController@add']);
+	Route::get('showHistory', ['as' => 'showHistory', 'uses' => 'StokController@showHistory']);
+	Route::get('hitung', ['as' => 'showHitungHarian', 'uses' => 'StokController@hitung']);
+	Route::post('hitung', ['as' => 'addHitungHarian', 'uses' => 'StokController@hitung']);
+});
